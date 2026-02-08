@@ -84,7 +84,37 @@ canvas {
     font-size: 1.5rem;
   }
 }
+.image-compare {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+.image-compare div {
+  text-align: center;
+}
 
+.image-compare img,
+.image-compare canvas {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
+#downloadBtn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6a5acd, #8a2be2);
+  color: white;
+}
 
+#downloadBtn:hover {
+  opacity: 0.9;
+}
