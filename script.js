@@ -25,6 +25,7 @@ upload.addEventListener("change", function () {
     }
 
     ctx.putImageData(imageData, 0, 0);
+    const downloadBtn = document.getElementById("downloadBtn");
     downloadBtn.style.display = "inline-block";
   };
 
@@ -39,6 +40,7 @@ downloadBtn.addEventListener("click", function () {
   link.href = canvas.toDataURL("image/png");
   link.click();
 });
+
 
 
 
