@@ -7,7 +7,7 @@ upload.addEventListener("change", function () {
   if (!file) return;
 
   const img = new Image();
-  downloadBtn.style.display = "inline-block"; () {
+  img.onload downloadBtn.style.display = "inline-block"; = function () {
     // ตั้งขนาด canvas ให้เท่ารูป
     canvas.width = img.width;
     canvas.height = img.height;
