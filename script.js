@@ -33,15 +33,15 @@ upload.addEventListener("change", function () {
 });
 
 downloadBtn.addEventListener("click", function () {
-  if (canvas.width === 0) return; // กันกดตอนยังไม่มีรูป
+  if (canvas.width === 0) return;
 
-  const link = document.createElement("a");
-  link.download = "grayscale.png";
-  link.href = canvas.toDataURL("image/png");
-  link.click();
-   // เปิดรูปในแท็บใหม่ (มือถือรองรับแน่นอน)
+  const imageURL = canvas.toDataURL("image/png");
+
+  // เปิดรูปในแท็บใหม่ (มือถือรองรับแน่นอน)
   window.open(imageURL, "_blank");
 });
+
+
 
 
 
