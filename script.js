@@ -29,6 +29,7 @@ upload.addEventListener("change", function () {
     ctx.putImageData(imageData, 0, 0);
 
     // แสดงปุ่มดาวน์โหลด
+    canvas.style.display = "block";
     downloadBtn.style.display = "inline-block";
   };
 
@@ -42,3 +43,4 @@ downloadBtn.addEventListener("click", function () {
   const imageURL = canvas.toDataURL("image/png");
   window.open(imageURL, "_blank");
 });
+
