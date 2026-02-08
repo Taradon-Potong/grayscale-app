@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -5,52 +7,79 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Inter', sans-serif;
 
-  /* พื้นหลังไล่สี */
-  background: linear-gradient(135deg, #667eea, #764ba2);
-
+  background: radial-gradient(circle at top left, #a18cd1, #fbc2eb);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* กล่องหลัก */
 .container {
-  background: white;
-  padding: 30px 40px;
-  border-radius: 16px;
-  text-align: center;
   width: 90%;
-  max-width: 600px;
+  max-width: 640px;
+  padding: 32px 40px;
+  border-radius: 20px;
 
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 
+/* หัวข้อ */
 h1 {
-  margin-bottom: 20px;
-  color: #333;
+  margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #1f2937;
 }
 
+/* ปุ่มอัปโหลด */
 .upload-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #43cea2, #185a9d);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 20px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .upload-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(102, 126, 234, 0.65);
 }
 
+/* Canvas */
 canvas {
-  margin-top: 20px;
+  margin-top: 28px;
   max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* มือถือ */
+@media (max-width: 480px) {
+  .container {
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
 }
