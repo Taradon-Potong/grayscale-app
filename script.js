@@ -25,7 +25,9 @@ upload.addEventListener("change", function () {
     }
 
     ctx.putImageData(imageData, 0, 0);
+    const downloadBtn = document.getElementById("downloadBtn");
   };
 
   img.src = URL.createObjectURL(file);
 });
+
