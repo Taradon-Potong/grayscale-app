@@ -1,6 +1,7 @@
 const upload = document.getElementById("upload");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const downloadBtn = document.getElementById("downloadBtn");
 
 upload.addEventListener("change", function () {
   const file = upload.files[0];
@@ -14,7 +15,6 @@ upload.addEventListener("change", function () {
 
     // วาดรูป
     ctx.drawImage(img, 0, 0);
-    const downloadBtn = document.getElementById("downloadBtn");
 
     // แปลงเป็นขาวดำ
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -26,18 +26,20 @@ upload.addEventListener("change", function () {
     }
 
     ctx.putImageData(imageData, 0, 0);
+
+    // ⬇️ ใส่ตรงนี้พอดี
     downloadBtn.style.display = "inline-block";
   };
 
   img.src = URL.createObjectURL(file);
-  
-  downloadBtn.addEventListener("click", function () {
-  if (canvas.width === 0) return; // กันกดตอนยังไม่มีรูป
+});
+
+// ปุ่มดาวน์โหลด
+downloadBtn.addEventListener("click", function () {
+  if (canvas.width === 0) return;
 
   const link = document.createElement("a");
   link.download = "grayscale.png";
   link.href = canvas.toDataURL("image/png");
   link.click();
 });
-
-
