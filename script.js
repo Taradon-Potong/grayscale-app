@@ -14,6 +14,7 @@ upload.addEventListener("change", function () {
 
     // วาดรูป
     ctx.drawImage(img, 0, 0);
+    const downloadBtn = document.getElementById("downloadBtn");
 
     // แปลงเป็นขาวดำ
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -28,4 +29,13 @@ upload.addEventListener("change", function () {
   };
 
   img.src = URL.createObjectURL(file);
+  
+  downloadBtn.addEventListener("click", function () {
+  if (canvas.width === 0) return; // กันกดตอนยังไม่มีรูป
+
+  const link = document.createElement("a");
+  link.download = "grayscale.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
 });
+
