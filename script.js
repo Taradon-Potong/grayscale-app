@@ -9,11 +9,14 @@ upload.addEventListener("change", function () {
 
   const img = new Image();
   img.onload = function () {
+    // ตั้งขนาด canvas
     canvas.width = img.width;
     canvas.height = img.height;
 
+    // วาดภาพ
     ctx.drawImage(img, 0, 0);
 
+    // แปลงเป็นขาวดำ
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data;
 
@@ -28,7 +31,7 @@ upload.addEventListener("change", function () {
 
     ctx.putImageData(imageData, 0, 0);
 
-    // แสดงปุ่มดาวน์โหลด
+    // แสดง canvas และปุ่ม
     canvas.style.display = "block";
     downloadBtn.style.display = "inline-block";
   };
@@ -36,11 +39,10 @@ upload.addEventListener("change", function () {
   img.src = URL.createObjectURL(file);
 });
 
-// ✅ รองรับมือถือ 100%
+// รองรับมือถือ
 downloadBtn.addEventListener("click", function () {
   if (canvas.width === 0) return;
 
   const imageURL = canvas.toDataURL("image/png");
   window.open(imageURL, "_blank");
 });
-
