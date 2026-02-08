@@ -26,6 +26,7 @@ upload.addEventListener("change", function () {
     }
 
     ctx.putImageData(imageData, 0, 0);
+    downloadBtn.style.display = "inline-block";
   };
 
   img.src = URL.createObjectURL(file);
@@ -38,4 +39,5 @@ upload.addEventListener("change", function () {
   link.href = canvas.toDataURL("image/png");
   link.click();
 });
+
 
