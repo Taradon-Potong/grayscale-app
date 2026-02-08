@@ -1,21 +1,18 @@
 const upload = document.getElementById("upload");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const originalImg = document.getElementById("original");
-const downloadBtn = document.getElementById("downloadBtn");
 
-upload.addEventListener("change", (e) => {
-  const file = e.target.files[0];
+upload.addEventListener("change", function () {
+  const file = upload.files[0];
+  if (!file) return;
+
   const img = new Image();
-
-  img.onload = () => {
-    // แสดงรูปก่อน
-    originalImg.src = img.src;
-
-    // ตั้งขนาด canvas
+  img.onload = function () {
+    // ตั้งขนาด canvas ให้เท่ารูป
     canvas.width = img.width;
     canvas.height = img.height;
 
+    // วาดรูป
     ctx.drawImage(img, 0, 0);
 
     // แปลงเป็นขาวดำ
@@ -23,7 +20,7 @@ upload.addEventListener("change", (e) => {
     const data = imageData.data;
 
     for (let i = 0; i < data.length; i += 4) {
-      const gray = data[i] * 0.3 + data[i + 1] * 0.59 + data[i + 2] * 0.11;
+      const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
       data[i] = data[i + 1] = data[i + 2] = gray;
     }
 
@@ -31,12 +28,4 @@ upload.addEventListener("change", (e) => {
   };
 
   img.src = URL.createObjectURL(file);
-});
-
-// ดาวน์โหลดภาพ
-downloadBtn.addEventListener("click", () => {
-  const link = document.createElement("a");
-  link.download = "grayscale.png";
-  link.href = canvas.toDataURL();
-  link.click();
 });
