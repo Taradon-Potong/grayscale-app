@@ -10,37 +10,19 @@
 <body>
 
   <!-- ⬇️ วางโค้ด container ตรงนี้ -->
- <div class="container">
-  <h1>🖼️ แปลงภาพเป็นขาวดำ</h1>
+  <div class="container">
+    <h1>🖼️ แปลงภาพเป็นขาวดำ</h1>
 
-  <label class="upload-btn">
-    เลือกรูปภาพ
-    <input type="file" id="upload" accept="image/*" hidden>
-  </label>
+    <label class="upload-btn">
+      เลือกรูปภาพ
+      <input type="file" id="upload" accept="image/*" hidden>
+    </label>
 
-  <!-- โซนแสดงรูป -->
-  <div class="image-compare">
-    <div>
-      <p>ก่อน</p>
-      <img id="original" />
-    </div>
-
-    <div>
-      <p>หลัง (ขาวดำ)</p>
-      <canvas id="canvas"></canvas>
-    </div>
+    <canvas id="canvas"></canvas>
   </div>
-
-  <!-- ปุ่มดาวน์โหลด -->
-  <button id="downloadBtn">⬇ ดาวน์โหลดรูปขาวดำ</button>
-</div>
-
   <!-- ⬆️ จบส่วน container -->
 
   <!-- เชื่อม JavaScript (ต้องอยู่ล่างสุด) -->
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
