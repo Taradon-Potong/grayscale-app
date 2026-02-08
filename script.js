@@ -6,7 +6,11 @@ upload.onchange = function () {
   if (!upload.files.length) return;
 
   const img = new Image();
-  img.src = URL.createObjectURL(upload.files[0]);
+img.onload = function () {
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+};
 
   img.onload = function () {
     canvas.width = img.width;
@@ -25,3 +29,4 @@ upload.onchange = function () {
     ctx.putImageData(imageData, 0, 0);
   };
 };
+
