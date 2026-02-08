@@ -39,7 +39,10 @@ downloadBtn.addEventListener("click", function () {
   link.download = "grayscale.png";
   link.href = canvas.toDataURL("image/png");
   link.click();
+   // เปิดรูปในแท็บใหม่ (มือถือรองรับแน่นอน)
+  window.open(imageURL, "_blank");
 });
+
 
 
 
