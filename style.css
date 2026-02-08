@@ -65,12 +65,12 @@ h1 {
 
 /* Canvas */
 canvas {
-  margin-top: 28px;
-  max-width: 100%;
-  border-radius: 16px;
-
-  background: #fff;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  margin-top: 20px;
+  max-width: 100%;     /* ไม่ล้นกรอบ */
+  width: 100%;         /* ขยายเต็มกล่อง */
+  height: auto;        /* รักษาสัดส่วน */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* มือถือ */
@@ -83,3 +83,4 @@ canvas {
     font-size: 1.5rem;
   }
 }
+
