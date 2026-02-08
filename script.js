@@ -1,54 +1,61 @@
-const upload = document.getElementById("upload");
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const downloadBtn = document.getElementById("downloadBtn"); // ← ต้องมีบรรทัดนี้
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-upload.addEventListener("change", function () {
-  const file = upload.files[0];
-  if (!file) return;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #b39ddb, #f8bbd0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  const img = new Image();
-  img.onload = function () {
-    canvas.width = img.width;
-    canvas.height = img.height;
+.container {
+  background: rgba(255,255,255,0.85);
+  padding: 30px 25px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
 
-    ctx.drawImage(img, 0, 0);
+h1 {
+  margin-bottom: 20px;
+}
 
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
+.upload-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6a5acd, #8a2be2);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
 
-    for (let i = 0; i < data.length; i += 4) {
-      const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
-      data[i] = data[i + 1] = data[i + 2] = gray;
-    }
+canvas {
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: block;
+}
 
-    ctx.putImageData(imageData, 0, 0);
+#downloadBtn {
+  margin-top: 15px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+}
 
-    // ✅ แสดงปุ่มดาวน์โหลด หลังจากแปลงภาพแล้ว
-    downloadBtn.style.display = "inline-block";
-  };
-
-  img.src = URL.createObjectURL(file);
-});
-
-// ✅ ใส่ตรงนี้เลย (ท้ายไฟล์)
-downloadBtn.addEventListener("click", function () {
-  if (canvas.width === 0) return;
-
-  const imageURL = canvas.toDataURL("image/png");
-
-  // มือถือรองรับแน่นอน
-  window.open(imageURL, "_blank");
-});
-
-
-
-
-
-
-
-
-
-
-
-
+#downloadBtn:hover {
+  opacity: 0.9;
+}
