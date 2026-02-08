@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>แปลงภาพสีเป็นภาพขาวดำ</title>
-
-  <!-- เชื่อม CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ⬇️ วางโค้ด container ตรงนี้ -->
   <div class="container">
     <h1>🖼️ แปลงภาพเป็นขาวดำ</h1>
 
     <label class="upload-btn">
       เลือกรูปภาพ
-      <input type="file" id="upload" accept="image/*" hidden>
+      <input type="file" id="upload" accept="image/*" hidden />
     </label>
 
     <canvas id="canvas"></canvas>
-    <button id="downloadBtn">⬇ ดาวน์โหลดรูปขาวดำ</button>
-  </div>
-  <!-- ⬆️ จบส่วน container -->
 
-  <!-- เชื่อม JavaScript (ต้องอยู่ล่างสุด) -->
+    <button id="downloadBtn" style="display:none;">
+      ⬇️ ดาวน์โหลดรูปขาวดำ
+    </button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
