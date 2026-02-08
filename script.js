@@ -1,6 +1,7 @@
 const upload = document.getElementById("upload");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const downloadBtn = document.getElementById("downloadBtn"); // ← ต้องมีบรรทัดนี้
 
 upload.addEventListener("change", function () {
   const file = upload.files[0];
@@ -8,14 +9,11 @@ upload.addEventListener("change", function () {
 
   const img = new Image();
   img.onload = function () {
-    // ตั้งขนาด canvas ให้เท่ารูป
     canvas.width = img.width;
     canvas.height = img.height;
 
-    // วาดรูป
     ctx.drawImage(img, 0, 0);
 
-    // แปลงเป็นขาวดำ
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data;
 
@@ -25,21 +23,24 @@ upload.addEventListener("change", function () {
     }
 
     ctx.putImageData(imageData, 0, 0);
-    const downloadBtn = document.getElementById("downloadBtn");
+
+    // ✅ แสดงปุ่มดาวน์โหลด หลังจากแปลงภาพแล้ว
     downloadBtn.style.display = "inline-block";
   };
 
   img.src = URL.createObjectURL(file);
 });
 
+// ✅ ใส่ตรงนี้เลย (ท้ายไฟล์)
 downloadBtn.addEventListener("click", function () {
   if (canvas.width === 0) return;
 
   const imageURL = canvas.toDataURL("image/png");
 
-  // เปิดรูปในแท็บใหม่ (มือถือรองรับแน่นอน)
+  // มือถือรองรับแน่นอน
   window.open(imageURL, "_blank");
 });
+
 
 
 
