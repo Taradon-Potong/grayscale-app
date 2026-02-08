@@ -31,3 +31,14 @@ upload.addEventListener("change", function () {
   img.src = URL.createObjectURL(file);
 });
 
+downloadBtn.addEventListener("click", function () {
+  if (canvas.width === 0) return; // กันกดตอนยังไม่มีรูป
+
+  const link = document.createElement("a");
+  link.download = "grayscale.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+});
+
+
+
