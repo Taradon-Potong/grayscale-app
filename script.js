@@ -22,6 +22,7 @@ upload.addEventListener("change", function () {
     for (let i = 0; i < data.length; i += 4) {
       const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
       data[i] = data[i + 1] = data[i + 2] = gray;
+      downloadBtn.style.display = "inline-block";
     }
 
     ctx.putImageData(imageData, 0, 0);
@@ -39,6 +40,7 @@ downloadBtn.addEventListener("click", function () {
   link.href = canvas.toDataURL("image/png");
   link.click();
 });
+
 
 
 
