@@ -1,21 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+
+  /* พื้นหลังไล่สี */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 16px;
   text-align: center;
-  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 h1 {
+  margin-bottom: 20px;
   color: #333;
 }
 
-input {
-  margin: 20px 0;
+.upload-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 canvas {
   margin-top: 20px;
-  max-width: 90%;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
